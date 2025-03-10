@@ -6,7 +6,7 @@ class Tilde < Formula
   version "0.0.1"
   license "EPL-1.0"
 
-  depends_on "borkdude/brew/bb"
+  depends_on "borkdude/brew/babashka"
 
   def install
     system "make"
