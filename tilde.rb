@@ -10,6 +10,6 @@ class Tilde < Formula
 
   def install
     system "make"
-    bin.install "tilde"
+    bin.install "target/tilde"
   end
 end
