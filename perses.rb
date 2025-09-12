@@ -15,9 +15,9 @@ class Perses < Formula
       system "npm", "run", "build"
     end
     inreplace "Makefile", /\$\(GO\) build/, "$(GO) build ${GOARGS}"
-    system "make", "build-api", "GOARGS=#{std_go_args}"
+    system "make", "build-api", "GOARGS=#{std_go_args.join(' ')}"
     bin.install "bin/perses"
-    system "make", "build-cli", "GOARGS=#{std_go_args}"
+    system "make", "build-cli", "GOARGS=#{std_go_args.join(' ')}"
     bin.install "bin/percli"
   end
 
