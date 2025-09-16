@@ -1,15 +1,28 @@
 on: push
 
 jobs:
-  install:
+  install-cli:
     runs-on: macos-latest
-    name: Install perses
+    name: Install perses CLI
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@main
+      - uses: actions/checkout@v2
+      - name: Link percli into Homebrew
+        run: ln -nsf $(pwd)/percli.rb $(brew --prefix)/Library/Taps/homebrew/homebrew-core/Formula/p/percli.rb
+      - name: Install perses CLI
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: true
+          HOMEBREW_NO_INSTALL_FROM_API: true
+        run: brew install --build-from-source --verbose --debug percli
+  install-server:
+    runs-on: macos-latest
+    name: Install perses server
     steps:
       - uses: Homebrew/actions/setup-homebrew@main
       - uses: actions/checkout@v2
       - name: Link perses into Homebrew
         run: ln -nsf $(pwd)/perses.rb $(brew --prefix)/Library/Taps/homebrew/homebrew-core/Formula/p/perses.rb
-      - name: Install perses
+      - name: Install perses server
         env:
           HOMEBREW_NO_AUTO_UPDATE: true
           HOMEBREW_NO_INSTALL_FROM_API: true
