@@ -1,6 +1,6 @@
 cask "whalebridge" do
-  version "0.2.0"
-  sha256 "b5ffa7d27707c564399bed2ea3ce3b9cda092f97b7220087e81c90278a505967"
+  version "0.3.0"
+  sha256 "7e090dad67efed610efcc76cfcda55ed9b9203b92e6b104dc45aa5efc670d277"
 
   url "https://github.com/cap10morgan/whalebridge/releases/download/v#{version}/Whalebridge-#{version}.zip"
   name "Whalebridge"
@@ -12,6 +12,10 @@ cask "whalebridge" do
     strategy :github_latest
   end
 
+  # Whalebridge updates itself via Sparkle, so `brew upgrade` leaves it
+  # alone (unless --greedy) rather than reinstalling over a newer copy
+  # the app already pulled down on its own.
+  auto_updates true
   depends_on macos: :tahoe
   depends_on arch: :arm64
 
