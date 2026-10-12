@@ -1,6 +1,6 @@
 cask "whalebridge" do
-  version "0.3.0"
-  sha256 "7e090dad67efed610efcc76cfcda55ed9b9203b92e6b104dc45aa5efc670d277"
+  version "0.5.1"
+  sha256 "8a14fb2d968d88016cff45e1360239f1a515846451e2d5f63f831a65d2ad273e"
 
   url "https://github.com/cap10morgan/whalebridge/releases/download/v#{version}/Whalebridge-#{version}.zip"
   name "Whalebridge"
